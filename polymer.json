@@ -4,7 +4,8 @@
   "fragments": [],
   "extraDependencies": [],
   "sources": [
-    "manifest.json"
+    "manifest.json",
+    "images/**"
   ],
   "builds": [{
   	"name": "es5",
