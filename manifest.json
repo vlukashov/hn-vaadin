@@ -1,0 +1,7 @@
+{
+  "name": "hnpwa-vaadin",
+  "short_name": "hnpwa-vaadin",
+  "description": "Hacker News Reader PWA made with Vaadin",
+  "start_url": "/",
+  "display": "standalone"
+}

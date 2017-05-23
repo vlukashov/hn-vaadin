@@ -1,0 +1,5 @@
+# automatically generated with `bower install`
+bower_components
+
+# automatically generated with `polymer build`
+build

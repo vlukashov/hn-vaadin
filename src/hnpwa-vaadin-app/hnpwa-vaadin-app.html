@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="hnpwa-vaadin-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class HnpwaVaadinApp extends Polymer.Element {
+      static get is() { return 'hnpwa-vaadin-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'hnpwa-vaadin-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(HnpwaVaadinApp.is, HnpwaVaadinApp);
+  </script>
+</dom-module>
