@@ -1,13 +1,55 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../../bower_components/vaadin-grid/vaadin-grid.html">
+
+<link rel="import" href="hnpwa-vaadin-app-styles.html">
 
 <dom-module id="hnpwa-vaadin-app">
   <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <h2>Hello [[prop1]]!</h2>
+    <style include="hnpwa-vaadin-app-styles"></style>
+
+    <iron-media-query query="(max-width: 420px)" query-matches="{{underSM}}"></iron-media-query>
+    <iron-media-query query="(max-width: 600px)" query-matches="{{underMD}}"></iron-media-query>
+
+    <vaadin-grid data-provider="[[dataProvider]]" page-size="30" size="300">
+      <vaadin-grid-column width="4em" flex-grow="0" hidden=[[underSM]]>
+        <template class="header">Points</template>
+        <template>[[item.points]]</template>
+      </vaadin-grid-column>
+
+      <vaadin-grid-column flex-grow="1">
+        <template class="header">Story</template>
+        <template>
+          <div class="story">
+            <p class="story__row">
+              <a class="story__title" href="[[item.url]]" target="_blank">[[item.title]]</a>
+              <span class="story__domain">([[item.domain]])</span>
+            </p>
+            <p class="story__row">
+              by <span class="story__author">[[item.user]]</span>
+              <span class="story__time" hidden=[[!underMD]]>[[item.time_ago]]</span>
+            </p>
+            <p class="story__row" hidden=[[!underSM]]>
+              <span class="story__points">[[item.points]] points</span>
+            </p>
+          </div>
+        </template>
+      </vaadin-grid-column>
+
+      <vaadin-grid-column width="8em" flex-grow="0" hidden=[[underMD]]>
+        <template class="header">Time</template>
+        <template>[[item.time_ago]]</template>
+      </vaadin-grid-column>
+
+      <vaadin-grid-column width="6.25em" flex-grow="0">
+        <template class="header">Comments</template>
+        <template>
+          <div class="comments-cell">
+            <a class="comments-button" href="#">[[item.comments_count]]</a>
+          </div>
+        </template>
+      </vaadin-grid-column>
+    </vaadin-grid>
   </template>
 
   <script>
@@ -19,9 +61,20 @@
       static get is() { return 'hnpwa-vaadin-app'; }
       static get properties() {
         return {
-          prop1: {
-            type: String,
-            value: 'hnpwa-vaadin-app'
+          dataProvider: {
+            type: Function,
+            value: () => {
+              return (params, callback) => {
+                const url = `https://node-hnapi.herokuapp.com/news?page=${params.page}`;
+                const xhr = new XMLHttpRequest();
+                xhr.onload = () => {
+                  const response = JSON.parse(xhr.responseText);
+                  callback(response);
+                };
+                xhr.open('GET', url, true);
+                xhr.send();
+              };
+            }
           }
         };
       }

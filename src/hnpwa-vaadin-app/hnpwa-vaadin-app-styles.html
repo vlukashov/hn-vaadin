@@ -1,0 +1,96 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="hnpwa-vaadin-app-styles">
+  <template>
+    <style>
+      :host {
+        display: block;
+        height: 100%;
+        font-size: 15px;
+      }
+
+      @media (min-width: 900px) {
+        :host {
+          font-size: 20px;
+        }
+      }
+
+      vaadin-grid {
+        height: 100%;
+        font-family: -apple-system, BlinkMacSystemFont,
+                     "Segoe UI", "Roboto", "Oxygen",
+                     "Ubuntu", "Cantarell", "Fira Sans",
+                     "Droid Sans", "Helvetica Neue", sans-serif;
+
+        --vaadin-grid-header-cell: {
+          background: #ffeed5;
+        };
+      }
+
+      .story {
+        color: #271117;
+      }
+
+      .story__row {
+        margin: 0;
+      }
+
+      .story__row:first-child {
+        margin-bottom: 10px;
+      }
+
+      .story__row:not(:first-child) {
+        margin-top: 4px;
+      }
+
+      .story__title {
+        color: #D93014;
+        font-size: 1.2em;
+        white-space: initial;
+      }
+
+      .story__title:focus,
+      .story__title:hover {
+        color: #F9662A;
+      }
+
+      .story__domain {
+        font-size: 1.2em;
+      }
+
+      .story__author {
+        font-weight: bold;
+      }
+
+      .comments-cell {
+        width: 100%;
+        height: 100%;
+      }
+
+      @media (min-width: 601px) {
+        .comments-cell {
+          height: auto
+        }
+      }
+
+      .comments-button {
+        text-decoration: none;
+        text-align: center;
+        color: #271117;
+        padding: 8px 8px;
+        border: 1px solid currentColor;
+        background: #FFD9A2;
+        border-radius: 4px;
+        white-space: normal;
+        width: 100%;
+        box-sizing: border-box;
+        display: inline-block;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .comments-button:focus,
+      .comments-button:hover {
+        background: #FEAF5C;
+      }
+    </style>
+</dom-module>
