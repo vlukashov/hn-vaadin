@@ -37,32 +37,97 @@
     <meta name="msapplication-tap-highlight" content="no">
 
     <style>
+      *, *::after, *::before {
+        box-sizing: border-box;
+      }
+
       html, body {
         height: 100%;
-        margin: 0;
       }
 
       body {
-        padding: 8px;
+        font-family: -apple-system, BlinkMacSystemFont,
+                     "Segoe UI", "Roboto", "Oxygen",
+                     "Ubuntu", "Cantarell", "Fira Sans",
+                     "Droid Sans", "Helvetica Neue", sans-serif;
+        min-height: 100vh;
+        padding: 0;
+        margin: 0;
       }
 
-      * {
-        box-sizing: border-box;
+      .wrapper {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .nav {
+        background-color: #2d3033;
+        height: 54px;
+        padding: 16px 0 16px 1em;
+        white-space: nowrap;
+      }
+
+      .nav-link {
+        color: #00b4f0;
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 300;
+        letter-spacing: .075em;
+        margin-right: 0.5em;
+        text-decoration: none;
+
+        padding-bottom: .2em;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+      }
+
+      .nav-link__active {
+        color: #fff;
+        border-bottom-color: #00b4f0;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus {
+        color: #fff;
+      }
+
+      .logo {
+        height: 24px;
+        width: 24px;
+        background: url(/images/vaadin-logo-32x32.png);
+        background-size: cover;
       }
     </style>
-
-    <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
-
-    <link rel="import" href="/src/hnpwa-vaadin-app/hnpwa-vaadin-app.html">
   </head>
   <body>
-    <hnpwa-vaadin-app></hnpwa-vaadin-app>
-    <noscript>
-      Please open this site with a browser that supports Javascript.
-    </noscript>
+    <nav class="nav">
+      <div class="wrapper">
+        <a class="nav-link" href="//vaadin.com" target="_blank" rel="noopener" title="Vaadin Logo">
+          <div class="logo"></div>
+        </a>
+        <a class="nav-link nav-link__active" href="/">Top</a>
+        <a class="nav-link" target="_blank" href="//news.ycombinator.com/newest">New</a>
+        <a class="nav-link" target="_blank" href="//news.ycombinator.com/comments">Comments</a>
+        <a class="nav-link" target="_blank" href="//news.ycombinator.com/show">Show</a>
+        <a class="nav-link" target="_blank" href="//news.ycombinator.com/ask">Ask</a>
+        <a class="nav-link" target="_blank" href="//news.ycombinator.com/jobs">Jobs</a>
+        <a class="nav-link" target="_blank" href="//news.ycombinator.com/submit">Submit</a>
+      </div>
+    </nav>
 
+    <div class="wrapper">
+      <hnpwa-vaadin-app></hnpwa-vaadin-app>
+    </div>
+
+    <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
+    <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <!-- Load your application shell -->
+    <link rel="import" href="/src/hnpwa-vaadin-app/hnpwa-vaadin-app.html">
+
+    <!-- Load and register pre-caching Service Worker -->
     <script>
-      // Load and register pre-caching Service Worker
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
           navigator.serviceWorker.register('/service-worker.js');
