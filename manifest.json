@@ -2,7 +2,7 @@
   "name": "Vaadin Hacker News Reader",
   "short_name": "HN Reader }>",
   "description": "Hacker News Reader PWA made with Vaadin",
-  "start_url": "/",
+  "start_url": "",
   "display": "standalone",
   "theme_color": "#3f51b5",
   "background_color": "#3f51b5",

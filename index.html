@@ -7,10 +7,10 @@
     <title>Vaadin Hacker News Reader</title>
     <meta name="description" content="Hacker News Reader PWA made with Vaadin">
 
-    <link rel="icon" href="/images/favicon.ico">
+    <link rel="icon" href="images/favicon.ico">
 
     <!-- See https://goo.gl/OOhYW5 -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
 
     <!-- See https://goo.gl/qRE0vM -->
     <meta name="theme-color" content="#3f51b5">
@@ -25,14 +25,14 @@
     <meta name="apple-mobile-web-app-title" content="Vaadin Hacker News Reader">
 
     <!-- Homescreen icons -->
-    <link rel="apple-touch-icon" href="/images/manifest/icon-48x48.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/images/manifest/icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="96x96" href="/images/manifest/icon-96x96.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/images/manifest/icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="/images/manifest/icon-192x192.png">
+    <link rel="apple-touch-icon" href="images/manifest/icon-48x48.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/manifest/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="images/manifest/icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/manifest/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="images/manifest/icon-192x192.png">
 
     <!-- Tile icon for Windows 8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="/images/manifest/icon-144x144.png">
+    <meta name="msapplication-TileImage" content="images/manifest/icon-144x144.png">
     <meta name="msapplication-TileColor" content="#3f51b5">
     <meta name="msapplication-tap-highlight" content="no">
 
@@ -106,7 +106,7 @@
         <a class="nav-link" href="//vaadin.com" target="_blank" rel="noopener" title="Vaadin Logo">
           <div class="logo"></div>
         </a>
-        <a class="nav-link nav-link__active" href="/">Top</a>
+        <a class="nav-link nav-link__active" href="">Top</a>
         <a class="nav-link" target="_blank" href="//news.ycombinator.com/newest">New</a>
         <a class="nav-link" target="_blank" href="//news.ycombinator.com/comments">Comments</a>
         <a class="nav-link" target="_blank" href="//news.ycombinator.com/show">Show</a>
@@ -121,16 +121,16 @@
     </div>
 
     <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
-    <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
 
     <!-- Load your application shell -->
-    <link rel="import" href="/src/hnpwa-vaadin-app/hnpwa-vaadin-app.html">
+    <link rel="import" href="src/hnpwa-vaadin-app/hnpwa-vaadin-app.html">
 
     <!-- Load and register pre-caching Service Worker -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/service-worker.js');
+          navigator.serviceWorker.register('service-worker.js');
         });
       }
     </script>
