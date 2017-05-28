@@ -1,0 +1,33 @@
+{
+  "name": "hn-vaadin",
+  "version": "1.0.0",
+  "description": "Very basic Hacker News Progressive Web App client made with Polymer 2 and Vaadin Elements ",
+  "main": "index.html",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "bower install && npm run build",
+    "build": "polymer build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vlukashov/hn-vaadin.git"
+  },
+  "keywords": [
+    "pwa",
+    "vaadin"
+  ],
+  "author": "Viktor Lukashov",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/vlukashov/hn-vaadin/issues"
+  },
+  "homepage": "https://github.com/vlukashov/hn-vaadin#readme",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "polymer-cli": "^1.1.0"
+  }
+}
