@@ -8,13 +8,27 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
-/* eslint-env node */
+ /* eslint-env node */
+const path = 'https://node-hnapi.herokuapp.com';
 
 module.exports = {
   staticFileGlobs: [
     '/index.html',
     '/manifest.json',
-    '/bower_components/webcomponentsjs/*',
+    '/bower_components/webcomponentsjs/webcomponents*.js',
+    '/bower_components/webcomponentsjs/custom-elements-es5-adapter.js'
+  ],
+  runtimeCaching: [
+    {
+      urlPattern: new RegExp(`${path}/news`),
+      handler: 'fastest',
+      options: {
+        cache: {
+          maxEntries: 30,
+          name: 'articles-cache'
+        }
+      }
+    }
   ],
   navigateFallback: 'index.html',
 };
