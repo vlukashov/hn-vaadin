@@ -3,7 +3,9 @@
   "description": "Hacker News Reader PWA made with Vaadin",
   "main": "index.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0"
+    "polymer": "Polymer/polymer#^2.0.0",
+    "vaadin-grid": "v3.0.0-alpha1",
+    "iron-media-query": "^2.0.0"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",
