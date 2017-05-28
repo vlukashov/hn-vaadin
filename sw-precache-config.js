@@ -11,12 +11,16 @@
  /* eslint-env node */
 const path = 'https://node-hnapi.herokuapp.com';
 
+// path to the webapp deployment root
+const root = '/hn-vaadin';
+
 module.exports = {
   staticFileGlobs: [
-    'index.html',
-    'manifest.json',
-    'bower_components/webcomponentsjs/webcomponents*.js',
-    'bower_components/webcomponentsjs/custom-elements-es5-adapter.js'
+    `${root}/index.html`,
+    `${root}/manifest.json`,
+    `${root}/images/vaadin-logo-32x32.png`,
+    `${root}/bower_components/webcomponentsjs/webcomponents*.js`,
+    `${root}/bower_components/webcomponentsjs/custom-elements-es5-adapter.js`
   ],
   runtimeCaching: [
     {
@@ -30,5 +34,5 @@ module.exports = {
       }
     }
   ],
-  navigateFallback: 'index.html',
+  navigateFallback: `${root}/index.html`,
 };
